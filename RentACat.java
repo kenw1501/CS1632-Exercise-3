@@ -79,7 +79,7 @@ public class RentACat {
     public boolean catExists(int id, ArrayList<Cat> catList) {
 
 		for (Cat c : catList) {
-			
+
 			// check if the cat exists
 			if (c.getId() == id) {
 				return true;
@@ -229,6 +229,7 @@ public class RentACat {
 			    }
 			} catch (Exception nfex) {
 			    System.err.println("Invalid cat ID.");
+				sc.next();
 			}
 		    }
 
