@@ -53,8 +53,17 @@ public class RentACat {
      */
     
     public String listCats(ArrayList<Cat> catList) {
-	// TODO
-	return "WRITE CODE FOR THIS";
+		String returnString = "";
+
+		for (Cat c : catList) {
+
+			// Check if the cat is rented
+			if (!c.getRented()) {
+				returnString += c.toString() + "\n";
+			}
+		}
+
+		return returnString;
     }
 
     /**
