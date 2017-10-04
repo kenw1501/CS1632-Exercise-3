@@ -38,7 +38,6 @@ public class RentACat_Test {
         Cat mockCat = Mockito.mock(Cat.class);
         when(mockCat.getRented()).thenReturn(false);
 
-
         boolean returnResult = rc.returnCat(mockCat);
 
         assertFalse(returnResult);
