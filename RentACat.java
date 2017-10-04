@@ -1,3 +1,5 @@
+import org.apache.commons.lang.NullArgumentException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,6 +20,9 @@ public class RentACat {
      */
 
     public boolean returnCat(Cat c) {
+        if(c == null) {
+            throw new NullPointerException();
+        }
         boolean rented = c.getRented();
         if(rented)
             c.returnCat();
@@ -38,6 +43,9 @@ public class RentACat {
 
 
     public boolean rentCat(Cat c) {
+        if(c == null) {
+            throw new NullPointerException();
+        }
         boolean rented = c.getRented();
         if(!rented)
             c.rentCat();

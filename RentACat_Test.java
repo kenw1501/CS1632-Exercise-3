@@ -26,7 +26,6 @@ public class RentACat_Test {
         when(mockCat.getName()).thenReturn("Meow");
         when(mockCat.getId()).thenReturn(0);
 
-
         RentACat r = new RentACat();
         String result = r.listCats(ListOfCats);
 
@@ -51,6 +50,11 @@ public class RentACat_Test {
         boolean returnResult = rc.rentCat(mockCat);
 
         assertFalse(returnResult);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testRentNullCat() {
+        boolean returnResult = rc.rentCat(null);
     }
 
 }
