@@ -18,31 +18,29 @@ public class RentACat_Test {
 
     @Test
     public void testListCats() {
-        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
-        ListOfCats.add(new Cat(0, ""));
 
         Cat mockCat = Mockito.mock(Cat.class);
         when(mockCat.getName()).thenReturn("Meow");
         when(mockCat.getId()).thenReturn(1);
+        when(mockCat.toString()).thenReturn("ID 1. Meow");
+
+        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
+        ListOfCats.add(mockCat);
 
         String result = rc.listCats(ListOfCats);
-        System.out.println(result);
-
         boolean res = result.equals("ID 1. Meow");
-        System.out.println(res);
         assertTrue(res);
     }
 
     @Test
     public void testListRentedCat() {
-
-        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
-        ListOfCats.add(new Cat(0, ""));
-
         Cat mockCat = Mockito.mock(Cat.class);
         when(mockCat.getName()).thenReturn("Meow");
         when(mockCat.getId()).thenReturn(0);
         when(mockCat.getRented()).thenReturn(true);
+
+        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
+        ListOfCats.add(mockCat);
 
         String result = rc.listCats(ListOfCats);
         assertTrue(result.length() == 0);
@@ -50,23 +48,23 @@ public class RentACat_Test {
 
     @Test
     public void testCatDoesExist() {
-
-        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
-        ListOfCats.add(new Cat(0, ""));
-
         Cat mockCat = Mockito.mock(Cat.class);
         when(mockCat.getId()).thenReturn(0);
+
+        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
+        ListOfCats.add(mockCat);
 
         assertTrue(rc.catExists(0, ListOfCats));
     }
 
     @Test
     public void testCatDoesNotExist() {
-        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
-        ListOfCats.add(new Cat(0, ""));
 
         Cat mockCat = Mockito.mock(Cat.class);
         when(mockCat.getId()).thenReturn(1);
+
+        ArrayList<Cat> ListOfCats = new ArrayList<Cat>();
+        ListOfCats.add(mockCat);
 
         assertFalse(rc.catExists(0, ListOfCats));
     }
