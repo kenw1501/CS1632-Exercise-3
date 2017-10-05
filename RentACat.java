@@ -1,5 +1,3 @@
-import org.apache.commons.lang.NullArgumentException;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -71,10 +69,13 @@ public class RentACat {
         String returnString = "";
 
         for (Cat c : catList) {
-
             // Check if the cat is rented
             if (!c.getRented()) {
-                returnString += c.toString() + "\n";
+
+                if (returnString.length() > 0) {
+                    returnString += "\n";
+                }
+                returnString += c.toString();
             }
         }
 
@@ -95,12 +96,10 @@ public class RentACat {
     public boolean catExists(int id, ArrayList<Cat> catList) {
 
         for (Cat c : catList) {
-
             // check if the cat exists
             if (c.getId() == id) {
                 return true;
             }
-
         }
 
         // Cat wasn't found
